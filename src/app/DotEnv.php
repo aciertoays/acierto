@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+
+$baseDir = __DIR__ . '/../../environments/env/';
+$dotenv = Dotenv\Dotenv::createImmutable($baseDir);
+if (file_exists($baseDir . '.env')) {
+    $dotenv->load();
+}
+$dotenv-> required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS', 'DB_PORT', 'DB_CHART']);
